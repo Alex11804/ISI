@@ -266,8 +266,18 @@ que pueden interpretarse de más de una manera. Cada entrada indicará su fuente
 para conservar la procedencia de la definición. El catálogo de requisitos podrá
 enlazar a los términos de esta sección, pero no los definirá de nuevo.
 
-| Término | Definición en Proyecto Simbiosis | Fuente |
+| Término | Definición | Fuentes |
 | --- | --- | --- |
+| **Escalado automático (Auto-scaling)** | Capacidad de la infraestructura tecnológica para aprovisionar o desaprovisionar recursos de cómputo de manera autónoma en función de la demanda y concurrencia de usuarios, sin requerir la intervención operativa manual del personal del sistema. | Acta de acuerdos, apartados 2.1.1 y 3 |
+| **Tiempo de respuesta (Latencia de servicio)** | Métrica de rendimiento computada estrictamente desde que el backend de la plataforma recibe una petición entrante hasta que emite la respuesta completa hacia el cliente, excluyendo la transferencia de archivos pesados y las demoras de servicios de terceros. | Acta de acuerdos, apartados 2.1.2 y 2.1.3 |
+| **Disponibilidad mensual del servicio** | Porcentaje de tiempo durante un mes natural en el que la plataforma se encuentra plenamente accesible y operativa; se monitorea mediante sondeos automáticos cada 5 minutos desde un sistema externo y admite un umbral mínimo del 99,5 %. | Acta de acuerdos, apartados 2.1.4 y 3 |
+| **Mantenimiento planificado** | Ventana de intervención técnica programada (preferentemente entre las 02:00 y las 06:00 h peninsular) que no se computa como indisponibilidad siempre que sea notificada con al menos 48 horas de antelación y no supere un total de 4 horas al mes. | Acta de acuerdos, apartados 2.1.4, 2.1.5 y 3 |
+| **RPO (Recovery Point Objective / Pérdida máxima admisible de datos)** | Período máximo de tiempo en el que se tolera la pérdida de información transaccional y de salud ante un incidente catastrófico, fijado en un límite operativo de 24 horas previas al evento mediante copias de seguridad diarias. | Acta de acuerdos, apartados 2.2.1 y 3 |
+| **RTO (Recovery Time Objective / Tiempo de recuperación)** | Intervalo máximo transcurrido desde la declaración formal de un incidente grave hasta el restablecimiento total y operativo de las funciones principales del sistema, estipulado en un máximo de 4 horas. | Acta de acuerdos, apartados 2.2.1 y 3 |
+| **Asociación activa (Paciente-Cuidador)** | Relación formal y vigente registrada en el sistema que vincula a un paciente con un cuidador, constituyendo la condición obligatoria para que este último pueda consultar o acceder a la información de salud del paciente. | Acta de acuerdos, apartados 2.2.3 y 2.2.4 |
+| **Ciclo de vida de cuenta de cuidador (Inactividad / Purga)** | Estados transicionales por los que pasa la cuenta de un cuidador desvinculado: pasa a estado inactivo al cumplir 3 meses continuos sin pacientes asociados y se elimina al alcanzar un año completo en dicha condición, preservando sus aportes y contenidos en el sistema. | Acta de acuerdos, apartados 2.2.4 y 3 |
+| **Autenticación delegada (OAuth 2.0 / OpenID Connect)** | Protocolo de autorización e identidad federada sobre HTTPS que permite a los usuarios acceder mediante su cuenta de Google sin que la plataforma receptora almacene ni gestione sus credenciales o contraseñas. | Acta de acuerdos, apartados 2.3.1 y 3 |
+| **WCAG 2.2 Nivel AA** | Estándar técnico internacional (*Web Content Accessibility Guidelines*) que define los criterios de éxito de accesibilidad web que la interfaz debe cumplir obligatoriamente en todas sus pantallas mediante validación automática y auditoría manual. | Acta de acuerdos, apartados 2.4.2, 2.4.3 y 3 |
 
 ## 10. Modelos de análisis
 
