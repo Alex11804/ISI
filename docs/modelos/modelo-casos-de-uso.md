@@ -150,27 +150,113 @@ Repite el esquema siguiente para cada caso seleccionado. Conserva sus referencia
 
 ### 6.1 Descripción de un caso
 
-**Identificador y nombre:** [Indica el caso.]
+**Identificador y nombre:** [UC-05 . Actualizar Perfil]
 
-**Estado de la descripción:** [Indica el nivel de detalle y el alcance desarrollado.]
+**Estado de la descripción:** [Descripcion detallada para LO6, basado en las declaraciones autorizadas por el profesor el 10/10/2026]
 
-**Objetivo:** [Explica qué resultado pretende obtener el participante.]
+**Objetivo:** [Permitir que la persona usuaria consulte, modifique y guarde los datos editables de su propio perfil..]
 
-**Participantes:** [Indica el actor principal y los actores de apoyo, si los hay.]
+**Participantes:** [Usuario registrado]
 
-**Precondiciones:** [Indica qué se da por cumplido al comenzar. Las comprobaciones que realiza el sistema pertenecen al flujo.]
+**Precondiciones:** 
+[
+- El usuario tiene una cuenta activa y ha iniciado sesión
+- Dispone de un perfil asociado a su cuenta
+]
 
-**Inicio:** [Indica qué acción o suceso inicia el caso.]
+**Inicio:** [El usuario accede a la opción de actualizar su perfil.]
 
-**Escenario principal:** [Describe la secuencia entre los participantes y el sistema.]
+**Escenario principal:** 
+[
+El usuario accede a su perfil.
+El sistema muestra los datos guardados, incluidos el alias y el correo electrónico.
+El usuario modifica el nombre completo, el teléfono, la dirección postal o las preferencias dietéticas.
+El sistema permite seleccionar ninguna, una o varias preferencias: vegana, sin gluten y baja en carbohidratos.
+El usuario solicita guardar los cambios.
+El sistema comprueba que el nombre y el teléfono sean válidos y que el resto de datos cumpla las reglas aplicables.
+Si todo es correcto, el sistema guarda los cambios y confirma que el perfil se ha actualizado.
+Y se termina el proceso
+]
 
-**Alternativas y errores:** [Vincula cada variación a un paso. Indica cómo continúa o termina.]
+**Alternativas y errores:** 
+[
+Datos incorrectos: Si el nombre o el teléfono están vacíos, contienen solo espacios o tienen un formato incorrecto, el sistema indica qué debe corregirse. No guarda los cambios y permite volver a intentarlo.
+Otros datos no válidos: El sistema señala el campo incorrecto, conserva los valores introducidos y no guarda nada hasta que se corrijan.
+Cancelación: Si el usuario cancela antes de guardar, se descartan los cambios y se mantienen los datos anteriores.
+Error al guardar: El sistema informa del problema, no confirma la actualización y conserva los valores introducidos para reintentar.
+Alias y correo electrónico: Se muestran solo para consulta y no se pueden modificar, según 
+FR-019.
+]
 
-**Postcondiciones:** [Indica qué queda establecido con éxito y qué se conserva o cambia si el caso termina sin éxito o se cancela. Una consulta no requiere modificar datos para alcanzar su objetivo.]
+**Postcondiciones:** 
+[
+-   Exito: Los cambios se guardan conjuntamente y el sistema confima la actualización.
+-   Error: Los datos guardados permanecen sin cambios. En caso de error, se conservan los valores introducidos para poder corregirlos o reintentar
+]
 
-**Reglas y NFR pertinentes:** [Remite a los requisitos y actas que condicionan el comportamiento.]
+**Reglas y NFR pertinentes:** 
+[
+UR-03: Actualización de infromación personal y preferencias.
+FR-019: Restricciones sobre los campos editables.
+Acta de UR-01, apartado 2.1: Teléfono obligatorio y admision de prefijos internacionales.
+Acta de aclaracion de UC-05: Reglas de validación, cancelación y guardado. 
+No hay NFR concretos en las fuentes aportadas.
+]
 
-**Preguntas abiertas:** [Registra solo las cuestiones necesarias que las fuentes no resuelvan. Si no hay preguntas para el alcance descrito, indícalo.]
+**Preguntas abiertas:** [No hay.]
+
+ ### 6.2 Descripción detallada UC-21 — Buscar recetas
+Identificador y nombre del caso de uso: [UC-21 . Buscar recetas]
+
+Objetivo: [Permitir al usuario encontrar recetas según ingredientes o texto y consultar su información detallada.]
+
+Participantes: [Usuario registrado]
+
+Precondiciones: 
+[
+- El usuario tiene una cuenta registrada y ha iniciado sesión
+- Hay recetas disponibles en el sistema.
+]
+
+Inicio: [El usuario accede a la opción de buscar recetas]
+
+Escenario principal de éxito: 
+[
+El usuario introduce una palabra o frase, selecciona ingredientes que desea incluir o ingredientes que quiere excluir.
+El sistema permite combinar los criterios.
+El usuario ejecuta la búsqueda.
+El sistema comprueba que hay al menos un criterio y que no existen conflictos entre ingredientes incluidos y excluidos.
+El sistema muestra las recetas publicadas y validadas que cumplen todos los criterios, ordenadas de más recientes a más antiguas.
+El usuario selecciona una receta.
+El sistema muestra su título, imagen si existe, ingredientes, instrucciones, tiempo de cocción, porciones, alias del autor e insignia de validación.
+El usuario puede volver a los resultados y conservar la búsqueda realizada.
+]
+
+Extensiones (flujos alternativos): 
+[
+1. Sin criterios (paso 3): El sistema solicita introducir al menos un criterio y no ejecuta la búsqueda.
+2. Ingredientes en conflicto (paso 4): El sistema informa del conflicto y espera a que el usuario lo corrija.
+3. Sin resultados (paso 5): El sistema informa de que no hay recetas coincidentes y puede proponer correcciones o alternativas. El usuario decide si realiza otra búsqueda.
+4. Datos incompletos (paso 5): Si falta la imagen, aparece «Sin imagen»; si no hay valoraciones, aparece «Sin valoraciones».
+
+
+Postcondiciones: 
+[
+Exito: Se muestran las recetas que cumplen los criterios y, si el usuario selecciona una, su detalle.
+Sin resultados: Se conservan los criterios para modificarlos o realizar otra busqueda.
+Error: No se modifican los datos de las recetas y se conservan los criterios de la ultima busqueda.
+]
+
+Reglas y NFR pertinentes: 
+[
+UR-08: Búsqueda de recetas.
+FR-085, FR-086, FR-087, FR-089, FR-099, FR-102 y FR-119: Criterios, resultados, ordenación y sugerencias.
+FR-056, FR-066 y FR-192: Información de las recetas, validación y alias del autor.
+Plan de E2: Búsqueda, resultados y consulta del detalle.
+No hay NFR concretos en las fuentes aportadas.
+]
+
+Preguntas abiertas: [No hay]
 
 ## 7 Continuidad entre iteraciones
 
